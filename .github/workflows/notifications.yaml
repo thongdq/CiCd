@@ -13,5 +13,5 @@ env:
 SLACK_CHANNEL: CiCd
 SLACK_MESSAGE: 'Please review on https://github.com/thongdq/CiCd/pull/${{ env.pull_number}}'
 SLACK_TITLE: 'Pull request'
-SLACK_USERNAME: 'Gittan
+SLACK_USERNAME: 'thongdq'
 SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
