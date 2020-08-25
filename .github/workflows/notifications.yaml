@@ -1,6 +1,9 @@
 name: Pull request
 
-on: pull
+on:
+    pull_request:
+        branches:
+            - master
     
 jobs:
     slackNotification:
