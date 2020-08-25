@@ -7,15 +7,15 @@ on:
     
 jobs:
     slackNotification:
-    name: Slack Notification
-    runs-on: ubuntu-latest
-    steps:
+        name: Slack Notification
+        runs-on: ubuntu-latest
+        steps:
         - run: echo ::set-env name=pull_number::$(jq — raw-output .pull_request.number $GITHUB_EVENT_PATH)
         - name: Slack Notification
-uses: rtCamp/action-slack-notify@master
-env:
-SLACK_CHANNEL: CiCd
-SLACK_MESSAGE: 'Please review on https://github.com/thongdq/CiCd/pull/${{ env.pull_number}}'
-SLACK_TITLE: 'Pull request'
-SLACK_USERNAME: 'thongdq'
-SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+        uses: rtCamp/action-slack-notify@master
+        env:
+            SLACK_CHANNEL: CiCd
+            SLACK_MESSAGE: 'Please review on https://github.com/thongdq/CiCd/pull/${{ env.pull_number}}'
+            SLACK_TITLE: 'Pull request'
+            SLACK_USERNAME: 'thongdq'
+            SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
