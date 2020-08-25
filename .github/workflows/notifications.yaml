@@ -1,10 +1,8 @@
-name: Pull request
-
 on:
     pull_request:
         branches:
             - master
-    
+name: Slack Notification Demo    
 jobs:
     slackNotification:
         name: Slack Notification
@@ -12,10 +10,10 @@ jobs:
         steps:
         - uses: actions/checkout@v2
         - name: Slack Notification
-            uses: rtCamp/action-slack-notify@master
-            env:
-                SLACK_CHANNEL: CiCd
-                SLACK_MESSAGE: 'Please review on https://github.com/thongdq/CiCd/pull/${{ env.pull_number}}'
-                SLACK_TITLE: 'Pull request'
-                SLACK_USERNAME: 'thongdq'
-                SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          uses: rtCamp/action-slack-notify@master
+          env:
+            SLACK_CHANNEL: CiCd
+            SLACK_MESSAGE: 'Please review on https://github.com/thongdq/CiCd/pull/${{ env.pull_number}}'
+            SLACK_TITLE: 'Pull request'
+            SLACK_USERNAME: 'thongdq'
+            SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
